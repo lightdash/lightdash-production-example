@@ -1,0 +1,11 @@
+FROM lightdash/lightdash:latest
+
+COPY ./dbt_project.yml /usr/app/dbt/dbt_project.yml
+COPY ./data /usr/app/dbt/data
+COPY ./models /usr/app/dbt/models
+COPY ./profiles /usr/app/profiles
+COPY ./lightdash-entrypoint.sh /usr/bin/lightdash-entrypoint.sh
+
+EXPOSE 8080
+
+ENTRYPOINT ["/usr/bin/lightdash-entrypoint.sh"]

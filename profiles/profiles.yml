@@ -1,0 +1,14 @@
+jaffle_shop:
+  target: jaffle
+  outputs:
+    jaffle:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      schema: "{{ env_var('GCP_DATASET_ID') }}"
+      threads: 1
+      timeout_seconds: 300
+      location: "{{ env_var('GCP_DATASET_LOCATION') }}"
+      priority: interactive
+      retries: 1
+
